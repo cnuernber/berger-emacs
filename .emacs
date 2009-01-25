@@ -14,10 +14,11 @@
  (lambda (item) (add-to-list 'load-path (dev-dir item)))
  '( "slime"
     "clojure-mode"
-    "swank-clojure"))
+    "swank-clojure"
+    "berger-emacs"))
 
 (when (not (eq 'darwin system-type))
-  (add-to-list 'load-path (dev-dir "berger-emacs")))
+  (add-to-list 'load-path (dev-dir "berger-emacs/non-aquamacs")))
 
 (require 'slime)
 (require 'clojure-mode)
