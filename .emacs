@@ -6,7 +6,7 @@
 ;aquamacs.  I am not sure how to check that except
 ;assuming that darwin os is aquamacs
 
-(defvar dev-install-root "/home/chrisn/olddesktop/dev")
+(defvar dev-install-root "/home/chrisn/dev")
 (defun dev-dir (str)
   (concat dev-install-root "/" str))
 
@@ -50,3 +50,4 @@
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
 (set-face-attribute 'default nil :font "Dina")
+(setq make-backup-files nil)
