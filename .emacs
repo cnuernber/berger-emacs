@@ -6,44 +6,17 @@
 ;aquamacs.  I am not sure how to check that except
 ;assuming that darwin os is aquamacs
 
-(defvar dev-install-root (getenv "DEV_INSTALL_ROOT"))
+(defvar dev-install-root "/home/chrisn/olddesktop/dev")
 (defun dev-dir (str)
   (concat dev-install-root "/" str))
 
 (mapc 
  (lambda (item) (add-to-list 'load-path (dev-dir item)))
- '( "slime"
-    "clojure-mode"
-    "swank-clojure"
-    "berger-emacs"))
+ '( "berger-emacs"))
 
 (when (not (eq 'darwin system-type))
   (add-to-list 'load-path (dev-dir "berger-emacs/non-aquamacs")))
 
-(require 'slime)
-(require 'clojure-mode)
-
-;I expect any necessary jars to bin the classpath variable.
-(defun get-classpath-list ()
-  (if 
-      (or
-       (eq 'windows-nt system-type)
-       (eq 'ms-dos system-type))
-      (split-string (getenv "CLASSPATH") ";")
-    (split-string (getenv "CLASSPATH") ":")))
-
-(setq swank-clojure-jar-path 
-      (dev-dir "clojure/clojure.jar"))
-(setq swank-clojure-extra-classpaths 
-      (get-classpath-list))
-
-
-(require 'swank-clojure-autoload)
-(global-set-key [f5] 'slime)
-(slime-setup '(slime-repl))
-(add-hook 'slime-connected-hook (lambda ()
-				  (interactive)
-				  (slime-redirect-inferior-output)))
 
 (require 'linum)
 (global-linum-mode 1)
@@ -75,3 +48,5 @@
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(setq inhibit-splash-screen t)
+(set-face-attribute 'default nil :font "Dina")
