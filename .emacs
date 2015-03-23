@@ -22,12 +22,6 @@
 (global-linum-mode 1)
 
 
-(require 'color-theme)
-(color-theme-initialize)
-(setq color-theme-is-global t)
-(color-theme-subtle-hacker)
-
-
 (require 'tabbar)
 (dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
       (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation"))
@@ -49,5 +43,12 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
-(set-face-attribute 'default nil :font "Dina")
+(set-face-attribute 'default nil :font "Anonymous Pro-11")
 (setq make-backup-files nil)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+(projectile-global-mode)
+(global-auto-revert-mode)
