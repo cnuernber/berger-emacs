@@ -65,3 +65,5 @@
  ;; If there is more than one, they won't work right.
  )
 (load-theme 'zenburn t)
+
+(setq cider-show-error-buffer nil)
