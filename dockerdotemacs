@@ -55,7 +55,6 @@
 
 (setq package-list '(cider paredit zenburn-theme))
 
-
 (unless package-archive-contents
   (package-refresh-contents))
 
