@@ -53,7 +53,15 @@
 (package-initialize)
 
 
+(setq package-list '(cider paredit zenburn-theme))
 
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+      (package-install package)))
 
 ;(projectile-global-mode)
 (global-auto-revert-mode)
