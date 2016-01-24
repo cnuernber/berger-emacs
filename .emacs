@@ -51,6 +51,18 @@
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+
+(setq package-list '(cider paredit zenburn-theme rainbow-delimiters))
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+      (package-install package)))
+
+
+
 ;(projectile-global-mode)
 (global-auto-revert-mode)
 (custom-set-variables
