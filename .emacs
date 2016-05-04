@@ -52,7 +52,7 @@
 	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(setq package-list '(cider paredit zenburn-theme rainbow-delimiters))
+(setq package-list '(cider paredit zenburn-theme rainbow-delimiters company))
 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -80,7 +80,9 @@
 (load-theme 'zenburn t)
 
 (setq cider-show-error-buffer nil)
-
+(show-paren-mode 1)
+(setq cider-repl-use-pretty-printing t)
+(setq cider-pprint-fn 'puget)
 (windmove-default-keybindings)
 
 
@@ -92,6 +94,11 @@
 (add-hook 'clojure-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook #'eldoc-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
+
 (delete-selection-mode 1)
 
 
