@@ -83,6 +83,7 @@
 (show-paren-mode 1)
 (setq cider-repl-use-pretty-printing t)
 (setq cider-pprint-fn 'puget)
+(setq cider-repl-display-in-current-window t)
 (windmove-default-keybindings)
 
 
@@ -122,8 +123,8 @@
   '(progn
      (define-key cider-mode-map (kbd "M-.") nil)
      (define-key cider-mode-map (kbd "M-,") nil)
-     (define-key cider-mode-map (kbd "M-/") 'cider-jump-to-var)
-     (define-key cider-mode-map (kbd "M-?") 'cider-jump-back)
+     (define-key cider-mode-map (kbd "M-/") 'cider-find-var)
+     (define-key cider-mode-map (kbd "M-?") 'cider-pop-back)
      ))
 
 (if (getenv "TMUX")
