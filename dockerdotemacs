@@ -82,6 +82,7 @@
 (show-paren-mode 1)
 (setq cider-repl-use-pretty-printing t)
 (setq cider-pprint-fn 'puget)
+(setq cider-repl-display-in-current-window t)
 (windmove-default-keybindings)
 
 
