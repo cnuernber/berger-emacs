@@ -673,34 +673,34 @@ has been modified, and whitespace otherwise.")
      (define-key cider-mode-map (kbd "M-?") 'cider-find-var)
      ))
 
-(if (getenv "TMUX")
-    (progn
-      (let ((x 2) (tkey ""))
-	(while (<= x 8)
-	  ;; shift
-	  (if (= x 2)
-	      (setq tkey "S-"))
-	  ;; alt
-	  (if (= x 3)
-	      (setq tkey "M-"))
-	  ;; alt + shift
-	  (if (= x 4)
-	      (setq tkey "M-S-"))
-	  ;; ctrl
-	  (if (= x 5)
-	      (setq tkey "C-"))
-	  ;; ctrl + shift
-	  (if (= x 6)
-	      (setq tkey "C-S-"))
-	  ;; ctrl + alt
-	  (if (= x 7)
-	      (setq tkey "C-M-"))
-	  ;; ctrl + alt + shift
-	  (if (= x 8)
-	      (setq tkey "C-M-S-"))
-	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d A" x)) (kbd (format "%s<up>" tkey)))
-	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d B" x)) (kbd (format "%s<down>" tkey)))
-	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d C" x)) (kbd (format "%s<right>" tkey)))
-	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d D" x)) (kbd (format "%s<left>" tkey)))
-	  (setq x (+ x 1))))))
+;; (if (getenv "TMUX")
+;;     (progn
+;;       (let ((x 2) (tkey ""))
+;; 	(while (<= x 8)
+;; 	  ;; shift
+;; 	  (if (= x 2)
+;; 	      (setq tkey "S-"))
+;; 	  ;; alt
+;; 	  (if (= x 3)
+;; 	      (setq tkey "M-"))
+;; 	  ;; alt + shift
+;; 	  (if (= x 4)
+;; 	      (setq tkey "M-S-"))
+;; 	  ;; ctrl
+;; 	  (if (= x 5)
+;; 	      (setq tkey "C-"))
+;; 	  ;; ctrl + shift
+;; 	  (if (= x 6)
+;; 	      (setq tkey "C-S-"))
+;; 	  ;; ctrl + alt
+;; 	  (if (= x 7)
+;; 	      (setq tkey "C-M-"))
+;; 	  ;; ctrl + alt + shift
+;; 	  (if (= x 8)
+;; 	      (setq tkey "C-M-S-"))
+;; 	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d A" x)) (kbd (format "%s<up>" tkey)))
+;; 	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d B" x)) (kbd (format "%s<down>" tkey)))
+;; 	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d C" x)) (kbd (format "%s<right>" tkey)))
+;; 	  (define-key key-translation-map (kbd (format "M-[ 1 ; %d D" x)) (kbd (format "%s<left>" tkey)))
+;; 	  (setq x (+ x 1))))))
 (put 'erase-buffer 'disabled nil)
