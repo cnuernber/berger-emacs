@@ -300,6 +300,7 @@ the first keyword in the `use-package' form."
 (add-hook 'clojure-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook (lambda () (set-fill-column 96)))
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-repl-mode-hook #'company-mode)
