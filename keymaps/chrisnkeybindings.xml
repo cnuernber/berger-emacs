@@ -1,0 +1,191 @@
+<keymap version="1" name="chrisnkeybindings" parent="Default for XWin">
+  <action id="$Paste">
+    <keyboard-shortcut first-keystroke="ctrl v" />
+    <keyboard-shortcut first-keystroke="shift insert" />
+    <keyboard-shortcut first-keystroke="ctrl y" />
+  </action>
+  <action id="$SelectAll" />
+  <action id=":cursive.actions.paredit/backward">
+    <keyboard-shortcut first-keystroke="ctrl left" />
+  </action>
+  <action id=":cursive.actions.paredit/barf-backwards">
+    <keyboard-shortcut first-keystroke="ctrl alt comma" />
+  </action>
+  <action id=":cursive.actions.paredit/barf-forwards">
+    <keyboard-shortcut first-keystroke="ctrl alt period" />
+  </action>
+  <action id=":cursive.actions.paredit/forward">
+    <keyboard-shortcut first-keystroke="ctrl right" />
+  </action>
+  <action id=":cursive.actions.paredit/kill-sexp">
+    <keyboard-shortcut first-keystroke="ctrl alt x" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
+  <action id=":cursive.actions.paredit/move-form-down">
+    <keyboard-shortcut first-keystroke="ctrl down" />
+  </action>
+  <action id=":cursive.actions.paredit/move-form-up">
+    <keyboard-shortcut first-keystroke="ctrl up" />
+  </action>
+  <action id=":cursive.actions.paredit/slurp-backwards">
+    <keyboard-shortcut first-keystroke="alt comma" />
+  </action>
+  <action id=":cursive.actions.paredit/slurp-forwards">
+    <keyboard-shortcut first-keystroke="alt period" />
+  </action>
+  <action id=":cursive.actions.paredit/splice">
+    <keyboard-shortcut first-keystroke="alt s" />
+  </action>
+  <action id=":cursive.actions.paredit/thread-form">
+    <keyboard-shortcut first-keystroke="shift ctrl t" />
+  </action>
+  <action id=":cursive.actions.paredit/unthread-form">
+    <keyboard-shortcut first-keystroke="shift ctrl alt t" />
+  </action>
+  <action id=":cursive.actions.paredit/wrap-curly">
+    <keyboard-shortcut first-keystroke="shift ctrl open_bracket" />
+  </action>
+  <action id=":cursive.actions.paredit/wrap-paren">
+    <keyboard-shortcut first-keystroke="shift ctrl 9" />
+  </action>
+  <action id=":cursive.actions.paredit/wrap-square">
+    <keyboard-shortcut first-keystroke="ctrl open_bracket" />
+  </action>
+  <action id=":cursive.extensions.clojure.core.typed.actions/type-check-ns">
+    <keyboard-shortcut first-keystroke="ctrl d" second-keystroke="ctrl t" />
+  </action>
+  <action id=":cursive.repl.actions/jump-to-repl">
+    <keyboard-shortcut first-keystroke="ctrl alt j" />
+  </action>
+  <action id=":cursive.repl.actions/next-history-item">
+    <keyboard-shortcut first-keystroke="shift ctrl down" />
+  </action>
+  <action id=":cursive.repl.actions/prev-history-item">
+    <keyboard-shortcut first-keystroke="shift ctrl up" />
+  </action>
+  <action id=":cursive.repl.actions/run-last-sexp">
+    <keyboard-shortcut first-keystroke="ctrl d" second-keystroke="ctrl e" />
+  </action>
+  <action id=":cursive.repl.actions/run-top-sexp">
+    <keyboard-shortcut first-keystroke="ctrl alt m" />
+  </action>
+  <action id=":cursive.repl.actions/switch-namespace">
+    <keyboard-shortcut first-keystroke="ctrl d" second-keystroke="ctrl n" />
+  </action>
+  <action id=":cursive.repl.actions/sync-files">
+    <keyboard-shortcut first-keystroke="ctrl d" second-keystroke="ctrl s" />
+  </action>
+  <action id=":cursive.testing.actions/run-ns-tests">
+    <keyboard-shortcut first-keystroke="ctrl t" second-keystroke="alt n" />
+    <keyboard-shortcut first-keystroke="ctrl t" second-keystroke="ctrl n" />
+  </action>
+  <action id=":cursive.testing.actions/run-single-test">
+    <keyboard-shortcut first-keystroke="ctrl t" second-keystroke="ctrl t" />
+  </action>
+  <action id="ChangesView.Diff" />
+  <action id="CheckinProject" />
+  <action id="CollapseBlock" />
+  <action id="CollapseSelection" />
+  <action id="CompareTwoFiles" />
+  <action id="Console.History.Browse" />
+  <action id="CopyAsDiagnosticTest" />
+  <action id="DecrementWindowHeight" />
+  <action id="Diff.ShowDiff" />
+  <action id="Editor Paste">
+    <keyboard-shortcut first-keystroke="ctrl y" />
+  </action>
+  <action id="EditorChooseLookupItemDot" />
+  <action id="EditorChooseLookupItemReplace" />
+  <action id="EditorCodeBlockStart" />
+  <action id="EditorCodeBlockStartWithSelection" />
+  <action id="EditorDeleteLine" />
+  <action id="EditorDuplicate" />
+  <action id="EditorIndentSelection" />
+  <action id="EditorJoinLines" />
+  <action id="EditorLineEnd">
+    <keyboard-shortcut first-keystroke="ctrl e" />
+  </action>
+  <action id="EditorLineEndWithSelection">
+    <keyboard-shortcut first-keystroke="shift ctrl e" />
+  </action>
+  <action id="EditorLineStart">
+    <keyboard-shortcut first-keystroke="ctrl a" />
+  </action>
+  <action id="EditorLineStartWithSelection">
+    <keyboard-shortcut first-keystroke="shift ctrl a" />
+  </action>
+  <action id="EditorLookupDown" />
+  <action id="EditorLookupUp" />
+  <action id="EditorMatchBrace" />
+  <action id="EditorNextWord" />
+  <action id="EditorPreviousWord" />
+  <action id="EditorScrollDown" />
+  <action id="EditorScrollUp" />
+  <action id="EditorTab" />
+  <action id="EmacsStyleIndent">
+    <keyboard-shortcut first-keystroke="tab" />
+  </action>
+  <action id="ExpandLiveTemplateByTab" />
+  <action id="ExtractFunction" />
+  <action id="ExtractMethod" />
+  <action id="FileChooser.GotoDesktop" />
+  <action id="FindPrevious">
+    <keyboard-shortcut first-keystroke="shift f3" />
+  </action>
+  <action id="GotoAction" />
+  <action id="GotoCustomRegion" />
+  <action id="GotoTest" />
+  <action id="GuiDesigner.Duplicate" />
+  <action id="Images.ShowThumbnails" />
+  <action id="IncrementWindowHeight" />
+  <action id="MethodOverloadSwitchDown" />
+  <action id="MethodOverloadSwitchUp" />
+  <action id="MoveStatementDown" />
+  <action id="MoveStatementUp" />
+  <action id="MoveTabDown">
+    <keyboard-shortcut first-keystroke="shift ctrl m" />
+  </action>
+  <action id="NextParameter" />
+  <action id="NextSplitter">
+    <keyboard-shortcut first-keystroke="shift ctrl insert" />
+  </action>
+  <action id="NextTemplateParameter" />
+  <action id="NextTemplateVariable">
+    <keyboard-shortcut first-keystroke="enter" />
+  </action>
+  <action id="PasteMultiple">
+    <keyboard-shortcut first-keystroke="shift ctrl v" />
+  </action>
+  <action id="PrevSplitter">
+    <keyboard-shortcut first-keystroke="shift ctrl j" />
+  </action>
+  <action id="RecentChangedFiles" />
+  <action id="RecentFiles" />
+  <action id="Refactorings.QuickListPopupAction" />
+  <action id="ResizeToolWindowDown" />
+  <action id="ResizeToolWindowUp" />
+  <action id="RunDashboard.CopyConfiguration" />
+  <action id="SendEOF" />
+  <action id="SplitHorizontally">
+    <keyboard-shortcut first-keystroke="shift ctrl 2" />
+  </action>
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="shift ctrl 3" />
+  </action>
+  <action id="SurroundWithLiveTemplate" />
+  <action id="ToggleBookmark0" />
+  <action id="ToggleBookmark2" />
+  <action id="ToggleBookmark3" />
+  <action id="ToggleBookmark9" />
+  <action id="Unsplit">
+    <keyboard-shortcut first-keystroke="shift ctrl 0" />
+  </action>
+  <action id="Vcs.Push" />
+  <action id="Vcs.ShowMessageHistory">
+    <keyboard-shortcut first-keystroke="ctrl m" />
+  </action>
+  <action id="Vcs.UpdateProject" />
+  <action id="XDebugger.CopyWatch" />
+  <action id="openAssertEqualsDiff" />
+  <action id="refactoring.extract.dependency" />
+</keymap>
