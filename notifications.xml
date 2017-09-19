@@ -1,5 +1,0 @@
-<application>
-  <component name="NotificationConfiguration">
-    <notification groupId="Maven: non-managed pom.xml" displayType="NONE" shouldLog="false" />
-  </component>
-</application>
