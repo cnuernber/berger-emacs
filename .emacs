@@ -52,7 +52,7 @@
 	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(setq package-list '(cider paredit zenburn-theme rainbow-delimiters company use-package))
+(setq package-list '(cider paredit zenburn-theme rainbow-delimiters company use-package markdown-mode yaml-mode))
 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -275,7 +275,12 @@ the first keyword in the `use-package' form."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" default))))
+ '(custom-safe-themes
+   (quote
+    ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" default)))
+ '(package-selected-packages
+   (quote
+    (markdown-mode yaml-mode undo-tree flx smex use-package company rainbow-delimiters zenburn-theme paredit cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -396,91 +401,6 @@ the first keyword in the `use-package' form."
          ;; logical to also bind M-/ to `undo-tree-redo'. This overrides the
          ;; default binding of M-/, which is to `dabbrev-expand'.
          ("M-/" . undo-tree-redo)))
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Packages: C-like languages
-
-;; General support for C, C++, and Objective-C based on libclang.
-(use-package irony
-  :init
-
-  ;; Enable Irony for C, C++, and Objective-C files.
-  (add-hook 'c-mode-hook #'irony-mode)
-  (add-hook 'c++-mode-hook #'irony-mode)
-  (add-hook 'objc-mode-hook #'irony-mode)
-
-  :config
-
-  ;; Taken from the README of irony-mode [1]. If it's not present,
-  ;; company-irony seems to only be able to work in a single buffer.
-  ;;
-  ;; [1]: https://github.com/Sarcasm/irony-mode
-  (add-hook 'irony-mode-hook #'irony-cdb-autosetup-compile-options)
-
-  ;; Automatically install irony-server if it is missing. irony-server
-  ;; is necessary for Irony to work at all!
-  (unless (irony--locate-server-executable)
-    ;; The following `let' is copied from the definition of
-    ;; `irony-install-server'. A better solution would be to
-    ;; dynamically bind `irony--install-server-read-command' to
-    ;; `identity' and then just use `call-interactively' to invoke
-    ;; `irony-install-server' with no arguments, but I don't know how
-    ;; to do this.
-    (let ((command
-           (format
-            (concat "%s %s %s && %s --build . "
-                    "--use-stderr --config Release --target install")
-            (shell-quote-argument irony-cmake-executable)
-            (shell-quote-argument (concat "-DCMAKE_INSTALL_PREFIX="
-                                          (expand-file-name
-                                           irony-server-install-prefix)))
-            (shell-quote-argument irony-server-source-dir)
-            (shell-quote-argument irony-cmake-executable))))
-      (irony-install-server command)))
-
-  :diminish irony-mode)
-
-;; Company integration for Irony.
-(use-package company-irony
-  :dependencies (company irony)
-  :init
-
-  ;; Tell Company about company-irony. For some reason, this appears
-  ;; to cause Irony to be eagerly loaded. So we only do it after Irony
-  ;; has been loaded.
-
-  (defun radian--set-up-company-irony ()
-    ;; Don't add `company-irony' as a backend if we have
-    ;; already added `company-irony-c-headers'. The backend
-    ;; for `company-irony-c-headers' is a grouped backend,
-    ;; so it accounts for both, and if we add
-    ;; `company-irony' it will take precedence and inhibit
-    ;; the functionality of `company-irony-c-headers'.
-    (unless (member '(company-irony-c-headers
-                      company-irony)
-                    company-backends)
-      (add-to-list 'company-backends 'company-irony)))
-
-  (add-hook 'irony-mode-hook #'radian--set-up-company-irony))
-
-;; Extends company-irony to work for completing #includes.
-(use-package company-irony-c-headers
-  :dependencies (company irony company-irony)
-  :init
-
-  ;; Tell Company about company-irony-c-headers. As per the README
-  ;; [1], we must add a grouped backend for things to work properly.
-  ;;
-  ;; [1]: https://github.com/hotpxl/company-irony-c-headers
-
-  (defun radian--set-up-company-irony-c-headers ()
-    (add-to-list 'company-backends '(company-irony-c-headers
-                                     company-irony)))
-
-  (add-hook 'irony-mode-hook #'radian--set-up-company-irony-c-headers))
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
