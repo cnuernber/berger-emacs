@@ -301,6 +301,8 @@ the first keyword in the `use-package' form."
 ;; put the following line in your ~/.tmux.conf:
 ;;   setw -g xterm-keys on
 
+(setq-default fill-column 88)
+
 
 (add-hook 'clojure-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 (add-hook 'clojure-mode-hook #'paredit-mode)
