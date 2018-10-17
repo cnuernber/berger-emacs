@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo $1 $2
+
+ffmpeg -i "$1" -vn -c:a copy "$2"

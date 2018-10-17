@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lein deploy clojars
+
+commit-and-tag $1
