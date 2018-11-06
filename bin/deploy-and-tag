@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 lein deploy clojars
 
 commit-and-tag $1
