@@ -280,7 +280,7 @@ the first keyword in the `use-package' form."
     ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" default)))
  '(package-selected-packages
    (quote
-    (yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel cider))))
+    (yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
