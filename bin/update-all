@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECTS="tech.resource tech.jna tech.datatype tech.javacpp-datatype tech.compute tech.opencv tvm-clj tech.ml-base tech.xgboost tech.smile techascent.com"
+PROJECTS="tech.resource tech.jna tech.datatype tech.javacpp-datatype tech.compute tech.opencv tvm-clj tech.ml-base tech.xgboost tech.smile techascent.com tech.persist tech.persist.datomic tech.io tech.io.aws tech.parallel"
 
 for PROJECT in $PROJECTS; do
     pushd $PROJECT
