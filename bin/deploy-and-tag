@@ -2,6 +2,6 @@
 
 set -e
 
-lein deploy clojars
+lein with-profile -dev deploy clojars
 
 commit-and-tag $1
