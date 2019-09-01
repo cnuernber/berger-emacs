@@ -17,28 +17,9 @@
 (when (not (eq 'darwin system-type))
   (add-to-list 'load-path (dev-dir "berger-emacs/non-aquamacs")))
 
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
-(require 'linum)
-(global-linum-mode 1)
-
-
-(require 'tabbar)
-(dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
-      (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation"))
-
-(defmacro defun-prefix-alt (name on-no-prefix on-prefix &optional do-always)
-  `(defun ,name (arg)
-     (interactive "P")
-     ,do-always
-     (if (equal nil arg)
-	 ,on-no-prefix
-       ,on-prefix)))
-
-(defun-prefix-alt shk-tabbar-next (tabbar-forward-tab) (tabbar-forward-group) (tabbar-mode 1))
-(defun-prefix-alt shk-tabbar-prev (tabbar-backward-tab) (tabbar-backward-group) (tabbar-mode 1))
-
-(global-set-key [(control tab)] 'shk-tabbar-next)
-(global-set-key [(control shift tab)] 'shk-tabbar-prev)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -280,7 +261,7 @@ the first keyword in the `use-package' form."
     ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" default)))
  '(package-selected-packages
    (quote
-    (yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel))))
+    (cider yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -301,7 +282,7 @@ the first keyword in the `use-package' form."
 ;; put the following line in your ~/.tmux.conf:
 ;;   setw -g xterm-keys on
 
-(setq-default fill-column 88)
+(setq-default fill-column 84)
 
 
 (add-hook 'clojure-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
