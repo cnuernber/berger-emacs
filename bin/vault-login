@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vault login -method=github token=$(cat ~/.github-token)

@@ -251,6 +251,7 @@ the first keyword in the `use-package' form."
 
 ;(projectile-global-mode)
 (global-auto-revert-mode)
+(auto-image-file-mode)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
