@@ -5,6 +5,7 @@
 OUT=`git push 2>&1`
 echo $OUT | grep -q "has no upstream branch."
 if [ $? -eq 0 ]; then
-  $(echo $OUT | sed 's/.*\(git push.*\)/\1/')
+    $(echo $OUT | sed 's/.*\(git push.*\)/\1/')
 else
-  echo $OUT
+    echo $OUT
+fi
