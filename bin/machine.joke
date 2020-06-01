@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd /home/chrisn/dev/tech.all/tech.ops
+./machine.joke $@
+popd
