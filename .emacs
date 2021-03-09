@@ -35,6 +35,8 @@
 
 (setq package-list '(cider paredit zenburn-theme rainbow-delimiters company use-package markdown-mode yaml-mode flycheck-joker))
 
+(require 'cider)
+
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -262,7 +264,7 @@ the first keyword in the `use-package' form."
     ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" default)))
  '(package-selected-packages
    (quote
-    (flycheck-joker cider yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel))))
+    (julia-mode flycheck-julia julia-repl flycheck-joker cider yaml-mode csharp-mode zenburn-theme use-package undo-tree smex rainbow-delimiters paredit markdown-mode flx counsel))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
