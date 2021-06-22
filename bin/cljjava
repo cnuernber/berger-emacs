@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p classes
+javac -cp $(clj -Spath) $(find java -name "*.java") -d classes

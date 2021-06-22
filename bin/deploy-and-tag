@@ -2,6 +2,15 @@
 
 set -e
 
-lein with-profile -dev deploy clojars
+if [ -f "project.clj" ]; then
+  lein with-profile -dev deploy clojars
 
-commit-and-tag $1
+  commit-and-tag $1
+else
+    rm -rf target
+    clj -M:test
+    clj -X:codox
+    clj -X:depstar
+    clj -X:deploy
+    commit-and-tag $1
+fi
