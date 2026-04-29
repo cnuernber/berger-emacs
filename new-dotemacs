@@ -1,0 +1,93 @@
+(menu-bar-mode -1)
+(global-display-line-numbers-mode 1)
+(auto-image-file-mode)
+(delete-selection-mode 1)
+(setq auto-save-file-name-transforms
+      `((".*" ,(concat user-emacs-directory "auto-save/") t)))
+
+(setq backup-directory-alist
+      `(("." . ,(concat user-emacs-directory "backups"))))
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;; Refresh package contents if you haven't recently
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Install zenburn if it's not already there
+(unless (package-installed-p 'zenburn-theme)
+  (package-install 'zenburn-theme))
+
+;; Load the theme
+(load-theme 'zenburn t)
+
+;; Install clojure-mode
+(unless (package-installed-p 'clojure-mode)
+  (package-install 'clojure-mode))
+
+;; Ensure clojure-mode is associated with Clojure files
+(require 'clojure-mode)
+
+;; Optional but highly recommended
+(unless (package-installed-p 'cider)
+  (package-install 'cider))
+
+(use-package cider
+  :ensure t
+  :config
+  ;; Tell CIDER not to compete with LSP for ElDoc (docs in echo area)
+  (setq cider-eldoc-display-for-symbol-at-point nil)
+  :custom
+  (cider-repl-display-in-current-window t))
+
+(use-package company
+  :ensure t
+  :init (global-company-mode) ; Enable it everywhere
+  :config
+  (setq company-idle-delay 0.1 ; Show suggestions almost instantly
+        company-minimum-prefix-length 1)) ; Show suggestions after 1 character
+
+(use-package lsp-mode
+  :ensure t
+  :hook (clojure-mode . lsp)
+  :config
+  ;; Use lsp-completion at point
+  (setq lsp-completion-provider :capf))
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings 'control))
+
+(add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package paredit
+  :ensure t
+  :hook ((clojure-mode . enable-paredit-mode)
+         (clojurescript-mode . enable-paredit-mode)
+         (emacs-lisp-mode . enable-paredit-mode))
+  :bind (:map paredit-mode-map
+              ("C-<right>" . nil)
+              ("C-<left>" . nil)
+              ("M-." . paredit-forward-slurp-sexp)
+              ("M-," . paredit-backward-slurp-sexp)
+              ("M->" . paredit-forward-barf-sexp)
+              ("M-<" . paredit-backward-barf-sexp))
+  :config
+  ;; This ensures rainbow-delimiters plays nice with paredit
+  (add-hook 'paredit-mode-hook #'rainbow-delimiters-mode))
+
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "C-<left>") nil)
+  (define-key paredit-mode-map (kbd "C-<right>") nil))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook ((clojure-mode . rainbow-delimiters-mode)
+         (clojurescript-mode . rainbow-delimiters-mode)
+         (emacs-lisp-mode . rainbow-delimiters-mode)
+         (cider-repl-mode . rainbow-delimiters-mode)))
