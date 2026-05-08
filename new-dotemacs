@@ -46,8 +46,8 @@
   :ensure t
   :init (global-company-mode) ; Enable it everywhere
   :config
-  (setq company-idle-delay 0.1 ; Show suggestions almost instantly
-        company-minimum-prefix-length 1)) ; Show suggestions after 1 character
+  (setq company-idle-delay 2; Show suggestions in 2 seconds
+        company-minimum-prefix-length 3)) ; Show suggestions after 1 character
 
 (use-package lsp-mode
   :ensure t
